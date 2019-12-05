@@ -1,8 +1,0 @@
-style : 2D top view
-
-genre :
-quiz
-puzzle
-
-subject:
-all of them
