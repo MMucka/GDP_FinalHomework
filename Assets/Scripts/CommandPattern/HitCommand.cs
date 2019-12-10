@@ -12,18 +12,12 @@ namespace Assets.Scripts.CommandPattern
 
         public override void Execute()
         {
-            Regex regex = new Regex(@"Brick \(\d\)");
-            Match match = regex.Match(_gameObject.name);
+            var match = new Regex(@"Brick\d").Match(_gameObject.name);
             if (match.Success)      //it is brick
             {
                 _gameObject.SetActive(false);                   //destroy brick
-                //GameObject.Find("Canvas").GetComponent<GameRun>().IncrementScore();
                 Locator.GetAudioFirst().PlaySound();
-            }
-
-            else if (_gameObject.name == "SideWallB")   //bottom wall
-            {                                           //END GAME
-                Commands.Instance.AddCommand(new EndGameCommand(_gameObject));
+                Commands.Instance.AddCode(ByteCodes.Codes.IncrementScore);
             }
         }
 

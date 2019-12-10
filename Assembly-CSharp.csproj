@@ -65,13 +65,12 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\Bumper.cs" />
-    <Compile Include="Assets\Scripts\CommandPattern\CommandPatternExample.cs" />
-    <Compile Include="Assets\Scripts\CommandPattern\EndGameCommand.cs" />
+    <Compile Include="Assets\Scripts\ByteCode\ByteCodes.cs" />
+    <Compile Include="Assets\Scripts\ByteCode\Commands.cs" />
     <Compile Include="Assets\Scripts\CommandPattern\HitCommand.cs" />
     <Compile Include="Assets\Scripts\CommandPattern\ICommandPattern.cs" />
-    <Compile Include="Assets\Scripts\CommandPattern\InputHandler.cs" />
-    <Compile Include="Assets\Scripts\CommandPattern\MoveCommandReceiver.cs" />
-    <Compile Include="Assets\Scripts\Commands.cs" />
+    <Compile Include="Assets\Scripts\CommandPattern\MoveCommand.cs" />
+    <Compile Include="Assets\Scripts\EndGame.cs" />
     <Compile Include="Assets\Scripts\GameRun.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\AudioInterface.cs" />
     <Compile Include="Assets\Scripts\ServiceLocator\AudioService.cs" />

@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
 using Assets.Scripts.CommandPattern;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class Ball : MonoBehaviour
 {
@@ -21,10 +23,10 @@ public class Ball : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Commands.Instance.AddCommand(new HitCommand(collision.gameObject));
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Commands.Instance.AddCommand(new HitCommand(collision.gameObject));
+        //Commands.Instance.AddCommand(new HitCommand(collision.gameObject));
+
+        Enum.TryParse(collision.gameObject.name, out ByteCodes.Codes objectCode);
+        Commands.Instance.AddCode(ByteCodes.Codes.Hit);
+        Commands.Instance.AddCode(objectCode);
     }
 }
