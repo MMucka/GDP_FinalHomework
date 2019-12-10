@@ -18,9 +18,6 @@ namespace Assets.Scripts
         {
             Locator.SetAudioFirst(new AudioService(HitBoxSound, audioSource));       //ServiceLocator
             Locator.SetAudioSecond(new AudioService(EndGameSound, audioSource));
-
-            _score = 0;  //lose,make new scene, play sound
-            Score.text = _score.ToString();
         }
 
         // Update is called once per frame
@@ -31,8 +28,7 @@ namespace Assets.Scripts
 
         public void IncrementScore()
         {
-            _score++;
-            Score.text = _score.ToString();
+            Score.text = "Score: " + (++_score);
         }
     }
 }

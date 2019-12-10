@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.CommandPattern
 {
@@ -17,6 +18,7 @@ namespace Assets.Scripts.CommandPattern
         public override void Execute()
         {
             Locator.GetAudioSecond().PlaySound();
+//            SceneManager.LoadScene("Game");
         }
 
         public override void UnExecute()

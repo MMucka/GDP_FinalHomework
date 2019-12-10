@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace Assets.Scripts.CommandPattern
 {
@@ -11,19 +12,18 @@ namespace Assets.Scripts.CommandPattern
 
         public override void Execute()
         {
-            if (_gameObject.name == "SideWallB")   //bottom wall
-            {   //END GAME
-                Commands.Instance.AddCommand(new EndGameCommand(_gameObject));
-            }
-            else if (_gameObject.name != "Bumper"
-                     && _gameObject.name != "SideWallR"
-                     && _gameObject.name != "SideWallL"
-                     && _gameObject.name != "SideWallT")   //brick
+            Regex regex = new Regex(@"Brick \(\d\)");
+            Match match = regex.Match(_gameObject.name);
+            if (match.Success)      //it is brick
             {
-                
-                _gameObject.SetActive(false);  //destroy brick
-                //ScoreUI.text = (++score).ToString();    //set score
+                _gameObject.SetActive(false);                   //destroy brick
+                //GameObject.Find("Canvas").GetComponent<GameRun>().IncrementScore();
                 Locator.GetAudioFirst().PlaySound();
+            }
+
+            else if (_gameObject.name == "SideWallB")   //bottom wall
+            {                                           //END GAME
+                Commands.Instance.AddCommand(new EndGameCommand(_gameObject));
             }
         }
 
